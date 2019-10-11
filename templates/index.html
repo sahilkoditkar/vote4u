@@ -1,46 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vote4u</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
+{% block body %}
 
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark md-3 pd-3" style="background-color: #e9ecef;">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="../static/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">vote4u
-            </a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Register</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Intro -->
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h1>vote4u</h1>
-            <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
-        </div>
+<!-- Intro -->
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>vote4u</h1>
+        <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
     </div>
+</div>
 
-    <!-- Features -->
-    <div class="container-fluid">
-        <div style="
+<!-- Features -->
+<div class="container-fluid">
+    <div style="
             background-image: url('../static/img/img_parallax.jpg');
             background-attachment: fixed;
             background-position: center;
@@ -48,36 +20,21 @@
             background-size: cover;
             color:white">
 
-            <div class="text-center my-5 py-5" style="background-color:rgba(0,0,0,0.5);">
-                <h1>Who can use vote4u</h1>
-                <ul>
-                    <li>
-                        <strong>Organizations</strong>
-                    </li>
-                    <li>
-                        <strong>Government</strong>
-                    </li>
-                    <li>
-                        <strong>Students</strong>
-                    </li>
-                </ul>
-            </div>
+        <div class="text-center my-5 py-5" style="background-color:rgba(0,0,0,0.5);">
+            <h1>Who can use vote4u</h1>
+            <ul>
+                <li>
+                    <strong>Organizations</strong>
+                </li>
+                <li>
+                    <strong>Government</strong>
+                </li>
+                <li>
+                    <strong>Students</strong>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="jumbotron text-center" style="margin-bottom: 0rem">
-        <div class="container">
-            <div>
-                Copyright &copy; 2019 <strong>SAGA Inc.</strong> All Rights Reserved | E-Voting using Blockchain "vote4u"
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"></li>
+        <li class="breadcrumb-item active">admin</li>
+    </ol>
+
+    <div class="jumbotron">
+        <form action="/admin/authenticate" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" autofocus required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="alert"></div>
+    </div>
+</div>
+
+{% endblock %}

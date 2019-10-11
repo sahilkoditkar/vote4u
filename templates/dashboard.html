@@ -2,56 +2,91 @@
 
 {% block body %}
 
+<div class="alert"></div>
 <div class="container">
-
-    <div class="jumbotron text-center">
-        <h1>Welcome to Scissors and Razors</h1>
-        <p>Contact: 9960628728</p>
+  <div class="row">
+    <div class="col-3 order-1">
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action"><span class="text-center">vote4u</span></a>
+        <a href="/admin/dashboard" class="list-group-item list-group-item-action active">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action">Set Election Date</a>
+        <a href="#" class="list-group-item list-group-item-action">Aprove Candidates</a>
+      </div>
+    </div>
+    <div class="col-9 order-2">
+      <div class="jumbotron text-center">
+        <h1>Welcome to vote4u</h1>
+        <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
         <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+      </div>
+      <div class="container">
+        <h2>Overview</h2>
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">New Entry</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="/admin/entry" class="btn btn-primary">New Entry</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Search</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="/admin/search" class="btn btn-primary">Search</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">New Enquiry</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="/admin/enquiry" class="btn btn-primary">New Enquiry</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">View Enquiry</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="/admin/view" class="btn btn-primary">View</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+  </div>
 </div>
+
+<!-- Graph -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script>
+  let myChart = document.getElementById('myChart').getContext('2d');
+
+  let massPopChart = new Chart(myChart, {
+    type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    data: {
+      labels: ['10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM'],
+      datasets: [{
+        label: 'Votes',
+        data: [
+          0, 4500, 5000, 5420, 5480, 4800, 6250
+        ],
+        backgroundColor: 'orange',
+        /* 
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+        ],
+        borderWidth: 1,
+        borderColor: '#777',
+        hoverBorderWidth: 3,
+        hoverBorderColor: '#000'*/
+      }]
+    },
+    /* 
+    options: {
+      title: {
+        display: true,
+        text: 'Placement Statistics',
+        fontSize: 25
+      },
+          legend: {
+              display: true,
+              position: 'right',
+              labels: {
+                  fontColor: '#000'
+              }
+          },
+          layout: {
+              padding: {
+                  left: 50,
+                  right: 0,
+                  bottom: 0,
+                  top: 0
+              }
+          },
+          tooltips: {
+              enabled: true
+          }
+    }
+    */
+  });
+</script>
+<!-- /Graph -->
 
 {% endblock %}

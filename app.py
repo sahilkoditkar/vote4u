@@ -5,9 +5,11 @@ from uuid import uuid4
 from urllib.parse import urlparse
 
 from blockchain import Blockchain
+from user import User
 
 # Creating a Web App
 app = Flask(__name__)
+app.secret_key = "vote4u"
 
 # Creating an address for the node on Port 5000
 node_address = str(uuid4()).replace('-', '')
@@ -18,15 +20,56 @@ blockchain = Blockchain()
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/login')
+
+@app.route('/admin')
 def admin():
+    return render_template('admin.html')
+
+@app.route('/admin/dashboard')
+def dashboard():
+    if 'username' in session:
+        return render_template('dashboard.html')
+    else:
+        return redirect(url_for('admin'))
+""" 
+@app.route('/admin/adduser')
+def adduser():
+    if 'username' in session:
+        return render_template('adduser.html')
+    else:
+        return redirect(url_for('admin'))
+"""
+@app.route('/admin/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('admin'))
+
+@app.route('/admin/authenticate', methods=['POST'])
+def authenticate():
+    username = request.form['username']
+    password = request.form['password']
+
+    user = User.get_user({'username':username,'password':password})
+
+    if user is None:
+        session.pop('username', None)
+        return redirect(url_for('admin'))
+    else:
+        session['username'] = username
+        return redirect(url_for('dashboard'))
+
+@app.route('/login')
+def login():
     return render_template('login.html')
+
 @app.route('/register')
 def register():
     return render_template('register.html')
-@app.route('/register_candidate')
-def register_candidate():
-    return render_template('register_candidate.html')
+
+@app.route('/registerCandidate')
+def registerCandidate():
+    return render_template('registerCandidate.html')
+
 
 
 # Mining a new block
