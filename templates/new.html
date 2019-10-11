@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NEW</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="alert"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3 order-1">
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action"><img src="salon/static/img/logo.png" width="40"
+              height="40" alt="Logo"></a>
+          <a href="new.html" class="list-group-item list-group-item-action active">Dashboard</a>
+          <a href="entry.html" class="list-group-item list-group-item-action">Entry</a>
+          <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+          <a href="#" class="list-group-item list-group-item-action">View-Entries</a>
+          <a href="#" class="list-group-item list-group-item-action">View-Enquiries</a>
+          <a href="#" class="list-group-item list-group-item-action">Reports</a>
+        </div>
+      </div>
+      <div class="col-9 order-2">
+        <div class="jumbotron text-center">
+          <h1>Welcome to -------- ------</h1>
+          <p>Contact: ----------</p>
+          <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+        </div>
+        <div class="container">
+          <h2>Overview</h2>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Graph -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let massPopChart = new Chart(myChart, {
+      type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data: {
+        labels: ['Monday', 'Tueday', 'Wednessday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Last-Week',
+          data: [
+            0, 4500, 5000, 5420, 5480, 4800, 6250
+          ],
+          backgroundColor: 'orange',
+          /* 
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth: 1,
+          borderColor: '#777',
+          hoverBorderWidth: 3,
+          hoverBorderColor: '#000'*/
+        }]
+      },
+      /* 
+      options: {
+        title: {
+          display: true,
+          text: 'Placement Statistics',
+          fontSize: 25
+        },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#000'
+                }
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    bottom: 0,
+                    top: 0
+                }
+            },
+            tooltips: {
+                enabled: true
+            }
+      }
+      */
+    });
+  </script>
+  <!-- /Graph -->
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">register</li>
+    </ol>
+
+    <div class="jumbotron">
+        <form action="/admin/register" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="DOB">DOB:</label>
+                <input type='date' min='1900-01-01' max='2000-1-1' class="form-control" id="DOB" name="DOB" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <select class="form-control" name="state" id="state">
+                    <option>Maharashtra</option>
+                    <!-- <option>Goa</option> -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="constituency">Constituency:</label>
+                <select class="form-control" name="state" id="state">
+                    <option>Parvati</option>
+                    <option>Kothrud</option>
+                    <option>Kasba</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="text" class="form-control" name="mobile" id="mobile" required>
+                <input type="tel" name="mobile" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar:</label>
+                <input type="text" class="form-control" name="aadhaar" id="aadhaar" required>
+            </div>
+            <div class="form-group">
+            <label for="profilePic"></label>>
+            </div>>
+
+            <button type="submit" class="btn btn-primary">Add user</button>
+        </form>
+        <div class="alert"></div>
+    </div>
+</div>
+
+{% endblock %}

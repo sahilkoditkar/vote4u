@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="jumbotron">
+        <form action="/admin/addentry" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input class="form-control" id="contact" name="contact" required>
+            </div>
+
+            <div>
+                <label for="therapy">Therapy: </label>
+                <select multiple class="form-control" id="therapy" name="therapy">
+                    <option>Facial</option>
+                    <option>Haircut</option>
+                    <option>Beard</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="staff">Staff:</label>
+                <select class="form-control" id="staff" name="staff" required>
+                    <option>name1</option>
+                    <option>name2</option>
+                    <option>name3</option>
+                    <option>name4</option>
+                </select>
+            </div>
+
+            <div class="form-group table-responsive">
+                <label for="therapy">Order Summary:</label>
+                <table class="table border">
+                    <tbody>
+                        <tr>
+                            <td class="thick-line text-left">Subtotal</td>
+                            <td class="thick-line text-left"><input type="text" id="subtotal" name="subtotal" value="0"
+                                    readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="thick-line text-left">Tax %</td>
+                            <td class="thick-line text-left"><input type="text" onchange="update()" id="tax"
+                                    name="tax" value="0" required></td>
+                        </tr>
+                        <tr>
+                            <td class="thick-line text-left">Discount</td>
+                            <td class="thick-line text-left"><input type="text" onchange="update()" id="discount"
+                                    name="discount" value="0" required></td>
+                        </tr>
+                        <tr>
+                            <td class="thick-line text-left">Total</td>
+                            <td class="thick-line text-left"><input type="text" id="total" name="total" value="0"
+                                    readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <label for="pay_method">Payment method:</label>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="digital" name="pay_method" value="digital">
+                    <label class="custom-control-label" for="digital">Digital</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="cash" name="pay_method" value="cash">
+                    <label class="custom-control-label" for="cash">Cash</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        <div class="alert"></div>
+    </div>
+</div>
+
+<script>
+
+    var subtotal=0;
+    document.getElementById("therapy").onchange = function () {
+        subtotal=0;
+        for (var i = 0; i < therapy.options.length; i++) 
+        {
+            var opt = therapy.options[i];
+            if (opt.selected)
+            {
+                if(opt.value=="Facial")
+                    subtotal+=200;
+                if(opt.value=="Haircut")
+                    subtotal+=150;
+                if(opt.value=="Beard")
+                    subtotal+=100;
+            }
+        }
+        update();
+    }
+    function update() {
+        var discount = document.getElementById("discount").value;
+        var tax = document.getElementById("tax").value;
+        document.getElementById("subtotal").value = subtotal;
+        document.getElementById("total").value = subtotal + (subtotal * tax / 100) - discount;
+    }
+
+</script>
+
+{% endblock %}

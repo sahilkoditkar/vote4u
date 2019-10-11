@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="jumbotron">
+        <form action="/admin/addenquiry" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input class="form-control" id="contact" name="contact" required>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Source:</label>
+                <select class="form-control" id="source" name="source" required>
+                    <option>Walk-In</option>
+                    <option>Hoarding</option>
+                    <option>Just-Dial</option>
+                    <option>Social-Media</option>
+                    <option>References</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        <div class="alert"></div>
+    </div>
+</div>
+
+{% endblock %}
