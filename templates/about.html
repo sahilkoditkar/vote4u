@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">About</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">About</li>
+    </ol>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Map Column -->
+        <div class="col-lg-8 mb-4">
+            <!-- Embedded Google Map -->
+            <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOxIRQX7AwjsRAIRcLlwzkj8&key=..."></iframe>
+        </div>
+        <!-- Contact Details Column -->
+        <div class="col-lg-4 mb-4">
+            <h3>Contact Details</h3>
+            <p>
+                PES's MCOE, IT Dept,
+                <br>Shivajinagar, Pune-05.
+                <br>
+            </p>
+            <p>
+                <abbr title="Phone">P</abbr>: 020-99999999
+            </p>
+            <p>
+                <abbr title="Email">E</abbr>:
+                <a href="mailto:favour4u@gmail.com">mail.favour4u@gmail.com
+                </a>
+            </p>
+            <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday
+            </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Intro Content -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-fluid rounded mb-4" src="../static/img/img_parallax.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+            <h2>About vote4u</h2>
+            <p>vote4u is a system which provides ...</p>
+            <p>Our general observation is that, ...</p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <h2>Our Team</h2>
+
+    <div class="row">
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="card h-100 text-center">
+                <img class="card-img-top" src="../static/img/aditya.jpg" alt="Aditya" width="750" height="450">
+                <div class="card-body">
+                    <h4 class="card-title">Team Member</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
+                    <p class="card-text">Aditya Choudhari</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">imadityac@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="card h-100 text-center">
+                <img class="card-img-top" src="../static/img/aakash.jpg" alt="Aakash" width="750" height="450">
+                <div class="card-body">
+                    <h4 class="card-title">Team Member</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
+                    <p class="card-text">Aakash Kalore</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">aakashb.kalore@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4" style="max-width: 18rem;">
+            <div class="card h-100 text-center">
+                <img class="card-img-top" src="../static/img/sahil.jpg" alt="Sahil" width="750" height="450">
+                <div class="card-body">
+                    <h4 class="card-title">Team Member</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
+                    <p class="card-text">Sahil Koditkar</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">sahilkoditkar@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4" style="max-width: 19rem;">
+            <div class="card h-100 text-center">
+                <img class="card-img-top" src="../static/img/gaurav.jpg" alt="Gaurav" width="750" height="450">
+                <div class="card-body">
+                    <h4 class="card-title">Team Member</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
+                    <p class="card-text">Gaurav Pandit</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#">gauravpandit1998@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+
+{% endblock %}

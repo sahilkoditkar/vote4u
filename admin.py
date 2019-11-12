@@ -1,7 +1,7 @@
 
 from database import Database
 
-class User:
+class Admin:
     
     def __init__(self, username, password):
         self.username = username
@@ -9,13 +9,13 @@ class User:
     
     def json(self):
         return {
-            'username': self.userame,
+            'username': self.username,
             'password': self.password
         }
 
-    def add_user(self):
-        Database.insert(collection='users', data=self.json())
+    def addAdmin(self):
+        Database.insert(collection='admin', data=self.json())
     
     @staticmethod
-    def get_user(query={}):
-        return Database.find_one(collection='users', query=query)
+    def getAdmin(query={}):
+        return Database.find_one(collection='admin', query=query)

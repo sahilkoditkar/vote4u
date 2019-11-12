@@ -1,11 +1,10 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-import requests
 from uuid import uuid4
-from urllib.parse import urlparse
 
 from blockchain import Blockchain
-from user import User
+from admin import Admin
+from voter import Voter
 
 # Creating a Web App
 app = Flask(__name__)
@@ -17,20 +16,35 @@ node_address = str(uuid4()).replace('-', '')
 # Creating a Blockchain
 blockchain = Blockchain()
 
+#app
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+#admin
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
 
 @app.route('/admin/dashboard')
 def dashboard():
-    if 'username' in session:
+    if 'admin' in session:
         return render_template('dashboard.html')
     else:
         return redirect(url_for('admin'))
+
+@app.route('/admin/logout')
+def logout():
+    session.pop('admin', None)
+    return redirect(url_for('admin'))
 """ 
 @app.route('/admin/adduser')
 def adduser():
@@ -39,24 +53,39 @@ def adduser():
     else:
         return redirect(url_for('admin'))
 """
-@app.route('/admin/logout')
-def logout():
-    session.pop('username', None)
-    return redirect(url_for('admin'))
-
 @app.route('/admin/authenticate', methods=['POST'])
 def authenticate():
     username = request.form['username']
     password = request.form['password']
 
-    user = User.get_user({'username':username,'password':password})
+    admin = Admin.getAdmin({'username':username,'password':password})
 
-    if user is None:
-        session.pop('username', None)
+    if admin is None:
+        session.pop('admin', None)
         return redirect(url_for('admin'))
     else:
-        session['username'] = username
+        session['admin'] = username
         return redirect(url_for('dashboard'))
+
+#voter
+@app.route('/voter/home')
+def home():
+    if 'voter' in session:
+        return render_template('home.html')
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/voter/profile')
+def profile():
+    if 'voter' in session:
+        return render_template('profile.html')
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/voter/logout')
+def voter_logout():
+    session.pop('voter', None)
+    return redirect(url_for('login'))
 
 @app.route('/login')
 def login():
@@ -70,7 +99,34 @@ def register():
 def registerCandidate():
     return render_template('registerCandidate.html')
 
+@app.route('/voter/authenticate', methods=['POST'])
+def voter_authenticate():
+    username = request.form['username']
+    password = request.form['password']
 
+    voter = Voter.getVoter({'username':username,'password':password})
+
+    if voter is None:
+        session.pop('voter', None)
+        return redirect(url_for('login'))
+    else:
+        session['voter'] = username
+        return redirect(url_for('home'))
+
+@app.route('/voter/register', methods=['POST'])
+def voter_register():
+    username = request.form['username']
+    password = request.form['password']
+
+    voter = Voter.getVoter({'username':username})
+
+    if voter is None:
+        voter = Voter(username = username, password = password)
+        voter.addVoter()
+        session['voter'] = username
+        return redirect(url_for('home'))
+    else:
+        return redirect(url_for('login'))
 
 # Mining a new block
 @app.route('/mine_block', methods = ['GET'])
@@ -79,7 +135,7 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = blockchain.proof_of_work(previous_proof)
     previous_hash = blockchain.hash(previous_block)
-    blockchain.add_transaction(sender = node_address, receiver = 'Hadelin', amount = 1)
+    blockchain.add_transaction(voter = node_address, voteFor = 'Party1', constituency = 'const1')
     block = blockchain.create_block(proof, previous_hash)
     response = {'message': 'Congratulations, you just mined a block!',
                 'index': block['index'],
@@ -110,10 +166,10 @@ def is_valid():
 @app.route('/add_transaction', methods = ['POST'])
 def add_transaction():
     json = request.get_json()
-    transaction_keys = ['sender', 'receiver', 'amount']
+    transaction_keys = ['voter', 'voteFor', 'constituency']
     if not all(key in json for key in transaction_keys):
         return 'Some elements of the transaction are missing', 400
-    index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount'])
+    index = blockchain.add_transaction(json['voter'], json['voteFor'], json['constituency'])
     response = {'message': f'This transaction will be added to Block {index}'}
     return jsonify(response), 201
 

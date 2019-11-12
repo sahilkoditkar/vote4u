@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Help</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Help</li>
+    </ol>
+
+    <div class="jumbotron">
+        <h1>welcome {{ session['voter'] }} </h1>
+        <h2>Help Coming Soon</h2>
+    </div>
+</div>
+
+{% endblock %}

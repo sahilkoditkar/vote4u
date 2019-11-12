@@ -11,7 +11,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark md-3 pd-3" style="background-color: #e9ecef;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning md-3 pd-3" style="background-color: #e9ecef;">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="../static/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">vote4u
@@ -23,19 +23,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-
+                    <li class="nav-item"><a class="nav-link" href="/help">Help</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Voter
                         </a>
+
+                        {% if 'voter' in session %}
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="/login" href="#">Login</a>
-                            <a class="/register" href="#">Register</a>
+                            <a class="nav-link" href="/voter/home">Home</a>
+                            <a class="nav-link" href="/voter/profile">Profile</a>
+                            <a class="nav-link" href="/voter/logout">Logout</a>
                         </div>
+                        {% else %}
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/register">Register</a>
+                        </div>
+                        {% endif %}
+
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Register</a></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +57,8 @@
     <footer class="jumbotron text-center" style="margin-bottom: 0rem">
         <div class="container">
             <div>
-                Copyright &copy; 2019 <strong>SAGA Inc.</strong> All Rights Reserved | "vote4u" Blockchain based E-Voting System
+                Copyright &copy; 2019 <strong>SAGA Inc.</strong> All Rights Reserved | "vote4u" Blockchain based
+                E-Voting System
             </div>
         </div>
     </footer>

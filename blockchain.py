@@ -1,6 +1,8 @@
 
 import hashlib, json
 import datetime
+import requests
+from urllib.parse import urlparse
 
 class Blockchain:
 
@@ -54,10 +56,10 @@ class Blockchain:
             block_index += 1
         return True
     
-    def add_transaction(self, sender, receiver, amount):
-        self.transactions.append({'sender': sender,
-                                  'receiver': receiver,
-                                  'amount': amount})
+    def add_transaction(self, voter, voteFor, constituency):
+        self.transactions.append({'voter': voter,
+                                  'voteFor': voteFor,
+                                  'constituency': constituency})
         previous_block = self.get_previous_block()
         return previous_block['index'] + 1
     
