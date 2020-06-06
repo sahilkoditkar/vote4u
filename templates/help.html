@@ -1,0 +1,243 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Help</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Help</li>
+    </ol>
+
+    <div class="text-center bg-dark text-light my-5 py-5">
+        <h4>How can we help you?</h4>
+        <div class="row justify-content-md-center my-3">
+            <input class="col-md-2" type="search" placeholder="Search">
+            <button class="col-md-auto btn btn-secondary" type="submit">Search</button>
+        </div>
+        <p>You can also browse the topics below to find what you are looking for.</p>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+        <h4>FAQs</h4>
+        <!--CollapseOne-->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <h4>How to Login & Register?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    To Login or Register follow the below links
+                    <a href="/login" class="btn btn-warning">Login</a>
+                    <a href="/register"class="btn btn-warning">Register</a>
+                </div>
+            </div>
+        </div>
+        <!--CollapseTwo-->
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        <h4>What is Blockchain?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    A blockchain can be referred to as a transactional database or public ledger that is created and
+                    maintained by a network of computers/servers. The various computers and/or servers that power
+                    the network take turns verifying sets of transactions and adding them to the database, which are
+                    referred to as blocks. These “blocks” of transactions are mathematically linked to one another
+                    in a way that would resemble a chain, hence the name blockchain. Once stored in the database,
+                    these transactions are permanent and irreversible. Our online voting platform has a
+                    blockchain-based ballot box that allows votes to be securely stored within the system.
+                </div>
+            </div>
+        </div>
+        <!--CollapseThree-->
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        <h4>What are the key benefits of online voting system?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    The key benefits of our online voting platform are inherent in its design, as it embodies all of
+                    the characteristics that a legitimate voting system requires: security, accuracy, transparency,
+                    anonymity, freedom, and fairness.
+                </div>
+            </div>
+        </div>
+        <!--CollapseFour-->
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                        aria-expanded="false" aria-controls="collapseFour">
+                        <h4>How are elections hosted within your online voting system kept secure?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                    Our online voting system uses elliptic curve cryptography, which requires each voter to be
+                    issued two separate keys that are mathematically related upon the creation of their account. One
+                    of these keys is made public to the other voters within the system, which is why it is called a
+                    public key. The other key is kept secret from all other voters within the system, and is
+                    therefore called a private key. The combination of the public key and private key is described
+                    as a key pair. When a voter creates an account within our online voting system, although the
+                    voter will be given both a public key and a private key, the voter’s private key will be used by
+                    the voter to control the account and submit requests to the system; however, other voters within
+                    the system will only know what that voter’s public key is. By leveraging elliptic curve
+                    cryptography in this way, ballot requests, updates, and submissions made within the system are
+                    kept secure, as they cannot be hacked or faked in any way. Also, once a voter’s vote have been
+                    approved and stored in our online voting system’s blockchain-based ballot box, it cannot be
+                    changed by any other voter within the system.
+                </div>
+            </div>
+        </div>
+        <!--CollapseFive-->
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+                        aria-expanded="false" aria-controls="collapseFive">
+                        <h4>How does your online voting system ensure elections results are accurate?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body">
+                    In order for votes to be considered official votes within our voting system, voters must have
+                    their identities verified prior to casting their ballots. Voters can only request official
+                    ballots for elections that meet their account credentials (i.e. country of citizenship, age,
+                    etc.) and can only request one ballot per election. During the ballot casting process, voters
+                    can rest assured knowing that their ballots will not be tampered with, as cryptography
+                    technology prevents voters’ ballots from being intercepted and modified prior to being stored in
+                    the blockchain-based ballot box. Once a voter’s vote has been stored in the blockchain-based
+                    ballot box, it cannot be changed by any other voter within the system. Finally, all voter’s that
+                    participate in an election will have an opportunity to audit the ballot box themselves to ensure
+                    that the vote count of the ballots stored in the ballot box match the election results being
+                    reported.
+                </div>
+            </div>
+        </div>
+        <!--CollapseSix-->
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+                        aria-expanded="false" aria-controls="collapseSix">
+                        <h4>How are transparent elections possible within your online voting system?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                <div class="card-body">
+                    Transparency is the most critical aspect of hosting a legitimate election; if one cannot audit
+                    the results of an election themselves, then how can they be assured that the results are
+                    accurate? The key differentiator of our online voting system when compared to other voting
+                    systems being used in elections today is that our system provides transparency into the election
+                    results, as all voters will have access to the blockchain-based ballot box that contains every
+                    ballot that is cast within each election. Being that all users have access to this information
+                    at all times, any user could audit the results of an election at any time to ensure the election
+                    results being reported are truly accurate.
+                </div>
+            </div>
+        </div>
+        <!--CollapseSeven-->
+        <div class="card">
+            <div class="card-header" id="headingSeven">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
+                        aria-expanded="false" aria-controls="collapseSeven">
+                        <h4>Will my vote will be kept private in your online voting system?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                <div class="card-body">
+                    Being that our online voting system has a transparent ballot box where all ballots cast are
+                    viewable to all voters, anonymity is necessary in order to protect each voter’s right to
+                    privacy. Our online voting system provides each voter with anonymity through the use of elliptic
+                    curve cryptography technology. Upon account creation, each voter is issued a public key that is
+                    associated to their account. Voters are known by other voters in the system only as their public
+                    key so that they can cast their ballot without having to reveal their identity to everyone else
+                    within the system. With this in mind, voters can be assured that their identities will be
+                    protected and that their votes will remain anonymous.
+                </div>
+            </div>
+        </div>
+        <!--CollapseEight-->
+        <div class="card">
+            <div class="card-header" id="headingEight">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseEight"
+                        aria-expanded="false" aria-controls="collapseEight">
+                        <h4>Will your online voting system allow me to change my vote?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                <div class="card-body">
+                    Voters that use our online voting system can cast their ballots online, ahead of time, similar to
+                    how one would vote by mail in an election. Once cast, voters can access their ballots and update
+                    them at any time on or prior to election day. This rule will ensure that, in the days leading up to
+                    an election, a voter can change their vote before it’s made official if they happen to change their
+                    mind about a particular candidate. This will also ensure that, when an election comes to a close on
+                    election day and the votes are officially counted, the election results are much more likely to
+                    reflect whom the voters really want to win the election at that point in time.
+                </div>
+            </div>
+        </div>
+        <!--CollapseNine-->
+        <div class="card">
+            <div class="card-header" id="headingNine">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseNine"
+                        aria-expanded="false" aria-controls="collapseNine">
+                        <h4>How can we verify the correct person id voting?</h4>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>This question breaks down into two parts: first, how can we verify that a given person is allowed
+                        to vote (i.e. they have a right to vote, and they have not voted already); second, how can we
+                        determine that a given vote was cast by one of those verified persons, and that it is the only
+                        vote on a given issue cast by that person.
+                        <p>The first part doesn’t change substantially in a transition to an online voting system.
+                            Voters must register to vote, and receive a certification authorizing them to vote when the
+                            polls open. In Follow My Vote’s online system, this certification takes the form of an
+                            identity on a blockchain which has been cryptographically signed by the identity verifiers
+                            for the election as being unique and authorized to vote.</p>
+                        <p>The second part is a more difficult problem which, in contemporary paper ballot systems, is
+                            largely unaddressed. It is simply assumed that if a ballot is in the box, it is valid and
+                            should be counted. There is no possible verification of this assertion later on in the
+                            process. In electronic voting systems, the problem is worse as typically audit trails are
+                            not preserved, and these systems are frequently designed with no eye towards security,
+                            allowing them to be manipulated to alter the votes. Follow My Vote’s voting system will
+                            preserve a complete audit trail which provides cryptographic proof that each counted vote
+                            was cast by one of the authorized identities, and it was the only one cast by that
+                            particular identity, without enabling any party (including election officials) to determine
+                            which certified identity cast that vote.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

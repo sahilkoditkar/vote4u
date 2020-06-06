@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 order-1">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action"><b><em>vote4u</em></b></a>
+                <a href="/admin/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="/admin/setElection" class="list-group-item list-group-item-action">Set Election</a>
+                <a href="/admin/approveVoter" class="list-group-item list-group-item-action">Aprove Voter</a>
+                <a href="/admin/approveCandidate" class="list-group-item list-group-item-action active">Aprove
+                    Candidates</a>
+            </div>
+        </div>
+        <div class="col-9 order-2">
+            <div class="jumbotron text-center">
+                <h1>Welcome to vote4u</h1>
+                <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
+                <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+            </div>
+            <div class="container">
+
+                <h1>Candidates</h1>
+
+                {% if Elections|length > 0 %}
+                {% for election in Elections %}
+
+                {% if election.candidates|length > 0 %}
+                {% for candidate in election.candidates %}
+
+                {% if candidate.status == false %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">{{election.title}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{candidate.name}}</h5>
+                        <p class="card-text">{{candidate.slogan}}.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Representing : {{candidate.representing}}</li>
+                        <li class="list-group-item">Qualification : {{candidate.qualification}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="/admin/approveCandidateDB/1/{{election._id}}/{{candidate.id}}/" class="btn btn-outline-success card-link">Approve</a>
+                        <a href="/admin/approveCandidateDB/0/{{election._id}}/{{candidate.id}}/" class="btn btn-outline-danger card-link">Disapprove</a>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% endfor %}
+                {% endif %}
+
+                {% endfor %}
+                {% endif %}
+
+                <div class="alert alert-info">
+                    No more registered Candidates.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

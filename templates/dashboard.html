@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-3 order-1">
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action"><b><em>vote4u</em></b></a>
+        <a href="/admin/dashboard" class="list-group-item list-group-item-action active">Dashboard</a>
+        <a href="/admin/setElection" class="list-group-item list-group-item-action">Set Election</a>
+        <a href="/admin/approveVoter" class="list-group-item list-group-item-action">Aprove Voter</a>
+        <a href="/admin/approveCandidate" class="list-group-item list-group-item-action">Aprove Candidates</a>
+      </div>
+    </div>
+    <div class="col-9 order-2">
+      <div class="jumbotron text-center">
+        <h1>Welcome to vote4u</h1>
+        <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
+        <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+      </div>
+      <div class="container">
+
+        <div>
+          <h2>Overview</h2>
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <div>
+          {% if Elections|length > 0 %}
+          <h2>Elections</h2>
+          {% for election in Elections %}
+          <div class="card">
+            <h4 class="card-header">{{election.title}}</h4>
+            <div class="card-body">
+              <p class="card-text">{{election.description}}</p>
+              <p class="card-text">Date :- {{election.date}} <br> Time :- {{election.starttime}} to {{election.endtime}}
+              </p>
+              <p class="card-text">Total Candidates :- <span
+                  class="badge badge-pill badge-info">{{election.candidates|length}}</span></p>
+
+              {% if 'result' not in election %}
+              <a href="/result/{{election._id}}/" class="btn btn-primary">Calculate and Publish Result</a>
+              {% else %}
+              <p class="card-text">Result :- {{ election.result }}</p>
+              {% endif %}
+
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Graph -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script>
+  let myChart = document.getElementById('myChart').getContext('2d');
+
+  let massPopChart = new Chart(myChart, {
+    type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    data: {
+      labels: ['10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM'],
+      datasets: [{
+        label: 'Votes',
+        data: [
+          0, 4500, 5000, 5420, 5480, 4800, 6250
+        ],
+        backgroundColor: 'orange',
+        /* 
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+        ],
+        borderWidth: 1,
+        borderColor: '#777',
+        hoverBorderWidth: 3,
+        hoverBorderColor: '#000'*/
+      }]
+    },
+    /* 
+    options: {
+      title: {
+        display: true,
+        text: 'Placement Statistics',
+        fontSize: 25
+      },
+          legend: {
+              display: true,
+              position: 'right',
+              labels: {
+                  fontColor: '#000'
+              }
+          },
+          layout: {
+              padding: {
+                  left: 50,
+                  right: 0,
+                  bottom: 0,
+                  top: 0
+              }
+          },
+          tooltips: {
+              enabled: true
+          }
+    }
+    */
+  });
+</script>
+<!-- /Graph -->
+
+{% endblock %}

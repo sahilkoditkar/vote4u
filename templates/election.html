@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Election</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/voter/home">Voter</a></li>
+        <li class="breadcrumb-item active">Election</li>
+    </ol>
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                <h4>{{Election.title}}</h4>
+                <p>{{Election.description}}</p>
+                <p>Election Date :- {{Election.date}}</p>
+                <p>Election Time :- {{Election.starttime}} - {{Election.endtime}}</p>
+                {% if 'result' in Election %}
+                <p>Result :- {{ Election.result }} </p>
+                {% endif %}
+            </div>
+            <div class="col bg-dark text-light p-3">
+                <form action="/registerCandidate" method="POST">
+                    <h4>Candidate Registration Form</h4>
+                    <div class="form-group">
+                        <label for="slogan">Campaign Slogan:</label>
+                        <input type="text" class="form-control" id="slogan" name="slogan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="representing">Representing / Party:</label>
+                        <input type="text" class="form-control" id="representing" name="representing" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="qualification">Qualification:</label>
+                        <input type="text" class="form-control" id="qualification" name="qualification" required>
+                    </div>
+                    <input type="hidden" id="electionID" name="electionID" value={{Election._id}}>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        {% if Election.candidates|length > 0 %}
+        <h4>Candidates : </h4>
+        <tr>
+            <th>Name</th>
+            <th>Slogan</th>
+            <th>Representing</th>
+            <th>Qualification</th>
+            <th>Vote</th>
+        </tr>
+        {% for candidate in Election.candidates %}
+        {% if candidate.status == true %}
+        <tr>
+            <td>{{candidate.name}}</td>
+            <td>{{candidate.slogan}}</td>
+            <td>{{candidate.representing}}</td>
+            <td>{{candidate.qualification}}</td>
+            <td>
+                <a href="/vote/{{Election._id}}/{{candidate.id}}/" class="btn btn-primary">Vote</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </table>
+    <div class="alert alert-info text-center">Only Approved Candidates will be shown here.</div>
+
+</div>
+
+{% endblock %}

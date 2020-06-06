@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Home</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/voter/home">Voter</a></li>
+        <li class="breadcrumb-item active">Home</li>
+    </ol>
+
+    <h1>Welcome {{ session['voter'] }} </h1>
+
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Featured</div>
+        <div class="card-body">
+            <a href="/voter/profile" class="card-link">
+                <h5>Profile</h5>
+                <p class="card-text">View, Complete or Update your profile here.</p>
+            </a>
+        </div>
+    </div>
+
+    <div>
+        {% if Elections|length > 0 %}
+        <h2>Elections :</h2>
+        {% for election in Elections %}
+        <div class="card">
+            <h4 class="card-header">{{election.title}}</h4>
+            <div class="card-body">
+                <p class="card-text">{{election.description}}</p>
+                <p class="card-text">Date :- {{election.date}} <br>
+                    Time :- {{election.starttime}} to {{election.endtime}}
+                </p>
+                <p class="card-text">Total Candidates :-
+                    <span class="badge badge-pill badge-info">{{election.candidates|length}}</span></p>
+                <a href="/election/{{election._id}}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">About</h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">About</li>
+    </ol>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Map Column -->
+        <div class="col-lg-8 mb-4">
+            <!-- Embedded Google Map -->
+            <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOxIRQX7AwjsRAIRcLlwzkj8&key=..."></iframe>
+        </div>
+        <!-- Contact Details Column -->
+        <div class="col-lg-4 mb-4">
+            <h3>Contact Details</h3>
+            <p>
+                PES's MCOE, IT Dept,
+                <br>Shivajinagar, Pune-05.
+                <br>
+            </p>
+            <p>
+                <abbr title="Phone">P</abbr>: 020-99999999
+            </p>
+            <p>
+                <abbr title="Email">E</abbr>:
+                <a href="mailto:favour4u@gmail.com">mail.favour4u@gmail.com
+                </a>
+            </p>
+            <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday
+            </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Intro Content -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-fluid rounded mb-4" src="../static/img/img_parallax.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+            <h2>About vote4u</h2>
+            <p>vote4u is a system which provides ...</p>
+            <p>Our general observation is that, ...</p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <h2>Our Team</h2>
+
+    <div class="row">
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical"
+                data-theme="dark" data-vanity="adityachoudhari"><a class="LI-simple-link"
+                    href='https://in.linkedin.com/in/adityachoudhari?trk=profile-badge'>Aditya Choudhari</a></div>
+        </div>
+
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical"
+                data-theme="dark" data-vanity="aakash-kalore-8a770617a"><a class="LI-simple-link"
+                    href='https://in.linkedin.com/in/aakash-kalore-8a770617a?trk=profile-badge'>Aakash Kalore</a></div>
+        </div>
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical"
+                data-theme="dark" data-vanity="sahilkoditkar"><a class="LI-simple-link"
+                    href='https://in.linkedin.com/in/sahilkoditkar?trk=profile-badge'>Sahil Koditkar</a></div>
+        </div>
+
+        <div class="col-lg-4 mb-4" style="max-width: 17rem;">
+            <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical"
+                data-theme="dark" data-vanity="gauravpandit1998"><a class="LI-simple-link"
+                    href='https://in.linkedin.com/in/gauravpandit1998?trk=profile-badge'>Gaurav Pandit</a></div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 order-1">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action"><b><em>vote4u</em></b></a>
+                <a href="/admin/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="/admin/setElection" class="list-group-item list-group-item-action">Set Election</a>
+                <a href="/admin/approveVoter" class="list-group-item list-group-item-action active">Aprove Voter</a>
+                <a href="/admin/approveCandidate" class="list-group-item list-group-item-action">Aprove Candidates</a>
+            </div>
+        </div>
+        <div class="col-9 order-2">
+            <div class="jumbotron text-center">
+                <h1>Welcome to vote4u</h1>
+                <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
+                <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+            </div>
+            <div class="container">
+
+                <h1>Voters</h1>
+
+                {% for voter in Voters %}
+                <div>
+                    <hr>
+                    <a href="/admin/view/{{voter._id}}/">
+                        <h4>{{voter.name}}</h4>
+                    </a>
+                    <p>{{voter.DOB}}</p>
+                    <a href="/admin/view/{{voter._id}}/"><button class="btn btn-success">View</button></a>
+                </div>
+                {% endfor %}
+
+                <div class="alert alert-info">
+                    No more registered Voters.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 order-1">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action"><b><em>vote4u</em></b></a>
+                <a href="/admin/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="/admin/setElection" class="list-group-item list-group-item-action">Set Election</a>
+                <a href="/admin/approveVoter" class="list-group-item list-group-item-action">Aprove Voter</a>
+                <a href="/admin/approveCandidate" class="list-group-item list-group-item-action">Aprove Candidates</a>
+            </div>
+        </div>
+        <div class="col-9 order-2">
+            <div class="jumbotron text-center">
+                <h1>Welcome to vote4u</h1>
+                <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
+                <a href="/admin/logout"><button class="btn btn-primary">Logout</button></a>
+            </div>
+            <div class="container">
+                <div class="border border-primary p-3">
+                    <h2>{{Voter.name}}</h2>
+                    <hr>
+                    <p>DOB: {{Voter.DOB}}</p>
+                    <p>Address: {{Voter.address}}</p>
+                    <p>State: {{Voter.state}}</p>
+                    <p>Mobile: {{Voter.mobile}}</p>
+                    <p>Email: {{Voter.email}}</p>
+                    <p>Aadhaar: {{Voter.aadhaar}}</p>
+                    <hr>
+                    <a href="/admin/approve/{{Voter._id}}/"><button class="btn btn-primary">Approve</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

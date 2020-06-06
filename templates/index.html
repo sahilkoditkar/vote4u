@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<!-- Intro -->
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Welcome to vote4u</h1>
+        <p>The Most secure and transparent blockchain based online voting system for modern era.</p>
+    </div>
+</div>
+
+<!-- Links -->
+
+<div class="container">
+    <div class="card bg-light mb-3">
+        <div class="card-header">Featured</div>
+        <div class="card-body">
+            <h5 class="card-title">Admin</h5>
+            <p class="card-text">Click to access Admin Dashboard.</p>
+            <a href="/admin/dashboard" class="btn btn-primary">Admin</a>
+        </div>
+    </div>
+    <div class="card bg-light mb-3">
+        <div class="card-header">Featured</div>
+        <div class="card-body">
+            <h5 class="card-title">Voter Login</h5>
+            <p class="card-text">Already voter? click to Login.</p>
+            <a href="/login" class="btn btn-primary">Login</a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Voter Register</h5>
+            <p class="card-text">Click to register as a Voter.</p>
+            <a href="/register" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-dark text-light my-5 py-5">
+    <h2 class="text-center">Technology Stack</h2>
+    <h5 class="text-center" style="margin-bottom: 60px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Est
+        corrupti dolorem, voluptatum nisi, doloremque facere ratione nulla repellendus tenetur natus aperiam
+        adipisci
+        deleniti illo aliquam inventore iste blanditiis facilis? Assumenda.</h5>
+
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col">
+                <div class="card bg-dark text-light" style="max-width: 18rem;">
+                    <img class="card-img-top" src="../static/img/blockchain.png" alt="blockchain">
+                    <p class="card-text">Blockchain technology isn't just a more efficient way to settle securities. It
+                        will fundamentally change market structures, and maybe even the architecture of the Internet
+                        itself.
+                        -Abigail Johnson</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-dark text-light" style="max-width: 18rem;">
+                    <img class="card-img-top" src="../static/img/mongodb.png" alt="mongodb">
+                    <p class="card-text">MongoDB is a general purpose, document-based, distributed database built for
+                        modern application developers and for the cloud era. No database makes you more productive.
+                        -mongodb.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card bg-dark text-light" style="max-width: 18rem;">
+                    <img class="card-img-top" src="../static/img/ipfs.png" alt="ipfs">
+                    <p class="card-text">IPFS powers the Distributed Web.
+                        A peer-to-peer hypermedia protocol
+                        designed to make the web faster, safer, and more open
+                        -ipfs.io</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-dark text-light" style="max-width: 18rem;">
+                    <img class="card-img-top" src="../static/img/python.png" alt="python" height="20%" width="20%">
+                    <p class="card-text">The canonical, "Python is a great first language", elicited, "Python is a great
+                        last language!"
+                        -Noah Spurrier</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="container-fluid my-5 py-5">
+    <div style="
+            background-image: url('../static/img/img_parallax.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:white">
+
+        <div class="text-center my-5 py-5" style="background-color:rgba(0,0,0,0.5);">
+            <h1>Who can use vote4u</h1>
+            <ul>
+                <li>
+                    <strong>Organizations</strong>
+                </li>
+                <li>
+                    <strong>Government</strong>
+                </li>
+                <li>
+                    <strong>Students</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
